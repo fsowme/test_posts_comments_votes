@@ -23,6 +23,9 @@ class AbstractPost(models.Model):
     class Meta:
         abstract = True
 
+    def __str__(self) -> str:
+        return f"Model: {self.__class__.__name__}, title: {self.title}"
+
 
 class AbstractComment(models.Model):
     text = models.TextField(verbose_name="Text")
