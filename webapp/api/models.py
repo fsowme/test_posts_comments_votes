@@ -47,7 +47,7 @@ class VoteArticle(AbstractVote):
 
 
 class VoteNewsComment(AbstractVote):
-    vote_comment = models.ForeignKey(
+    comment = models.ForeignKey(
         NewsComment,
         on_delete=models.CASCADE,
         related_name="votes",
@@ -56,7 +56,7 @@ class VoteNewsComment(AbstractVote):
 
 
 class VoteArticleComment(AbstractVote):
-    vote_comment = models.ForeignKey(
+    comment = models.ForeignKey(
         ArticleComment,
         on_delete=models.CASCADE,
         related_name="votes",
