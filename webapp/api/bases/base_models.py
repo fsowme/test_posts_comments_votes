@@ -5,6 +5,10 @@ User = get_user_model()
 
 
 class AbstractPost(models.Model):
+    class PostType(models.TextChoices):
+        news = "news"
+        article = "article"
+
     title = models.CharField(verbose_name="Title", max_length=100)
     text = models.TextField(verbose_name="Text")
     creation_date = models.DateTimeField(

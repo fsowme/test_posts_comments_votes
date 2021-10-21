@@ -1,5 +1,5 @@
 from django.db import models
-from .abc_models import AbstractComment, AbstractPost, AbstractVote
+from .bases.base_models import AbstractComment, AbstractPost, AbstractVote
 
 
 class News(AbstractPost):
@@ -23,7 +23,7 @@ class NewsComment(AbstractComment):
         verbose_name_plural = "Comments of news"
 
     def __str__(self) -> str:
-        return f"Comment of news ({self.news.name})"
+        return f"Comment of news ({self.news.title})"
 
 
 class ArticleComment(AbstractComment):
