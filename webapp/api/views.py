@@ -2,6 +2,7 @@ from django.db.models.query_utils import Q
 from django.http.response import Http404
 from django.shortcuts import get_object_or_404
 from rest_framework.exceptions import ValidationError
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from api import serializers
 from api.bases.base_viewsets import BaseVoteViewset, ListRetrieveViewset
@@ -17,6 +18,7 @@ class CommentViewset(ListRetrieveViewset):
 
 
 class PostVoteViewset(BaseVoteViewset):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = serializers.VotePostSerializer
     lookup_field = "user__username"
 
@@ -36,6 +38,7 @@ class PostVoteViewset(BaseVoteViewset):
 
 
 class CommentVoteViewset(BaseVoteViewset):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = serializers.VoteCommentSerializer
     lookup_field = "user__username"
 

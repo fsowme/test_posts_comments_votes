@@ -24,6 +24,32 @@ python manage.py migrate
 ```
 
 ## Использование
+- /api/v1/posts/<**post_title**>/votes
+    ```
+    - список плюсов и минусов к посту
+    - GET для всех, остальные для авторизованных
+    - фильтр по плюсам и минусам через параметр запроса: ?vote_type=<upvote или downvote>
+    ```
+- /api/v1/posts/<**post_title**>/votes/count
+    ```
+    - общее количество плюсов и минусов к посту
+    - количество только плюсов или только минусов через параметр запроса: ?vote_type=<upvote или downvote>
+    ```
+- posts/<**post_title**>/comments/<**comment_id**>/votes
+    ```
+    - как и с постами, только для комментариев
+    ```
+- posts/<**post_title**>/comments/<**comment_id**>/votes/count
+    ```
+    - как и с постами, только для комментариев
+    ```
+- /api/v1/posts/<**post_title**>/comments/ 
+    ```
+    - список комментариев к посту со списком плюсов/минусов
+    - для всех только GET
+    ```
 
-- /api/v1/posts//comments/
+### Технологии
+[Django](https://www.djangoproject.com/)
 
+[Django REST framework](https://www.django-rest-framework.org/)

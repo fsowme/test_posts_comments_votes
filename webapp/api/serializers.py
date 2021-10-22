@@ -10,11 +10,9 @@ User = get_user_model()
 
 
 class VotePostSerializer(BaseVoteSerializer):
-    post = SlugRelatedField(slug_field="title", read_only=True)
-
     class Meta(BaseVoteSerializer.Meta):
         model = VotePost
-        exclude = ("id",)
+        exclude = ("id", "post")
 
 
 class VoteCommentSerializer(BaseVoteSerializer):
