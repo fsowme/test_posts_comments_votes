@@ -1,17 +1,18 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import NewsVoteViewset, ArticleVoteViewset
+
+from api.views import CommentVoteViewset, PostVoteViewset
+
 
 router = DefaultRouter()
-
-
 router.register(
-    r"news/(?P<news_id>[0-9]+)/votes", NewsVoteViewset, "news_votes"
+    r"posts/(?P<post_id>[0-9]+)/votes", PostVoteViewset, "post_votes"
 )
 router.register(
-    r"article/(?P<news_id>[0-9]+)/votes", ArticleVoteViewset, "article_votes"
+    r"comments/(?P<comment_id>[0-9]+)/votes",
+    CommentVoteViewset,
+    "comment_votes",
 )
-
 
 urlpatterns = [
     path("v1/", include(router.urls)),

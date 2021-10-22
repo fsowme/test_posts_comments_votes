@@ -13,7 +13,3 @@ class BaseVoteSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "vote_type": {"required": True},
         }
-
-
-class BaseVoteCommentSerializer(BaseVoteSerializer):
-    comment = serializers.SlugRelatedField(slug_field="id", read_only=True)
