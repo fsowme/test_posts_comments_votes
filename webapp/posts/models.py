@@ -12,7 +12,7 @@ class Post(models.Model):
         news = "news"
         article = "article"
 
-    title = models.CharField(verbose_name="Title", max_length=100)
+    title = models.CharField(verbose_name="Title", max_length=100, unique=True)
     text = models.TextField(verbose_name="Text")
     creation_date = models.DateTimeField(
         "Date and time of creation", auto_now_add=True
@@ -31,6 +31,7 @@ class Post(models.Model):
     )
 
     class Meta:
+        ordering = ["title"]
         verbose_name = "Post"
         verbose_name_plural = "Posts"
 
