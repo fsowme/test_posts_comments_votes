@@ -18,7 +18,6 @@ router.register(
     "comment_votes",
 )
 
-
 urlpatterns = [
     path("v1/", include(router.urls)),
 ]
